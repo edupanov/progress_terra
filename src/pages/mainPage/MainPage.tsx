@@ -4,10 +4,11 @@ import infoButton from '../../assets/information-button.png'
 import Bonuses from "./chunks/bonuses/Bonuses";
 
 const MainPage = () => {
+
     const onClickHandler = () => {
         alert('Hello, this was done by Egor Dupanov ^_^')
     }
-    console.log('MainPage')
+
     return (
         <div className={style.MainPageWrapper}>
             <div className={style.Content}>

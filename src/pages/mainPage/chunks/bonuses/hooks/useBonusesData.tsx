@@ -17,7 +17,6 @@ export const useBonusesData = () => {
             console.error('Ошибка при выполнении запроса:', error);
         }
     };
-    console.log(data)
 
     useEffect(() => {
         fetchBonusesData();
