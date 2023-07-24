@@ -13,4 +13,5 @@ export const requestData = {
 export const headers = {
     'Content-Type': 'application/json',
     'AccessKey': Config.ACCESS_KEY,
+    'Content-Security-Policy': 'update-insecure-requests'
 }
