@@ -1,5 +1,6 @@
 {
   "name": "progress_terra",
+  "homepage": "https://edupanov.github.io/progress_terra/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
