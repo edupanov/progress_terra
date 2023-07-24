@@ -1,0 +1,24 @@
+.MainPageWrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(0deg, rgba(245,75,85,1) 0%, rgba(210,51,62,1) 53%, rgba(255,255,255,1) 53%);  padding: 0 20px;
+
+  .Content {
+    margin-top: 32px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    .Info {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(0deg, rgba(245, 75, 85, 1) 0%, rgba(210, 51, 62, 1) 100%);
+     border: none;
+      border-radius: 50%;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

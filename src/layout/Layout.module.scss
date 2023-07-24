@@ -1,0 +1,20 @@
+.layoutWrapper {
+  max-width: 375px;
+  height: 100vh;
+    margin: auto;
+  display: flex;
+  background: white;
+
+  .mainBlockContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    flex-grow: 1;
+    display: flex;
+  }
+}
+
+
