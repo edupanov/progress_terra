@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/progress_terra/static/css/main.37ff3a61.css",
-    "main.js": "/progress_terra/static/js/main.35045de6.js",
+    "main.js": "/progress_terra/static/js/main.1a314597.js",
     "static/js/787.c4d6c197.chunk.js": "/progress_terra/static/js/787.c4d6c197.chunk.js",
     "index.html": "/progress_terra/index.html",
     "main.37ff3a61.css.map": "/progress_terra/static/css/main.37ff3a61.css.map",
-    "main.35045de6.js.map": "/progress_terra/static/js/main.35045de6.js.map",
+    "main.1a314597.js.map": "/progress_terra/static/js/main.1a314597.js.map",
     "787.c4d6c197.chunk.js.map": "/progress_terra/static/js/787.c4d6c197.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.37ff3a61.css",
-    "static/js/main.35045de6.js"
+    "static/js/main.1a314597.js"
   ]
 }
