@@ -102,3 +102,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Link {
+  width: 140px;
+  height: 26px;
+  margin: 15px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #f54b55;
+  border-radius: 5px;
+}
