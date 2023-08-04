@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {dateConverter} from "../../../../shared/utils/utils";
 import flame from "../../../../assets/flame.png";
 import {useBonusesData} from "./hooks/useBonusesData";

@@ -1,22 +1,34 @@
 import React, {ChangeEvent, ChangeEventHandler, useCallback, useEffect, useRef, useState} from 'react';
-import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
-import style from './Speech.module.scss'
+import style from './SpeechNative.module.scss'
 import {Link} from "react-router-dom";
 
-const Speech = () => {
-    const {
-        transcript,
-        listening,
-        resetTranscript,
-        browserSupportsSpeechRecognition
-    } = useSpeechRecognition();
+const SpeechNative = () => {
 
     const [ourText, setOurText] = useState<string>('')
+    const [listening, setListening] = useState<boolean>(false)
+
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'ru-RU'
+    recognition.interimResults = false
+    recognition.continuous = false
+    recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript
+        const changedTranscript = addRandomDigitAfterEachWord(transcript)
+        setOurText((prevState)=> `${prevState} ${changedTranscript}`)
+    };
+
+    recognition.onstart = function() {
+        setListening(true)
+    };
+    recognition.onend = function() {
+        setListening(false)
+    };
 
     const addRandomDigitAfterEachWord = useCallback((inputString: string): string => {
         let words = inputString.split("-");
         if (words.length === 1 ){
-            words = words.join(' ').split(' ')
+            words = words.join('').split(' ')
         }
         const resultArray: string[] = [];
         for (const word of words) {
@@ -26,25 +38,22 @@ const Speech = () => {
         return resultArray.join(' ');
     }, [])
 
+    const startRecognition = () => {
+        recognition.start()
+    }
+
+    const stopRecognition = () => {
+        recognition.stop()
+    }
+
     const onClear = () => {
         setOurText('')
-        resetTranscript()
     }
 
-const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setOurText(event.target.value)
-}
-
-    useEffect(() => {
-        if (transcript) {
-            const modifiedText = addRandomDigitAfterEachWord(transcript);
-            setOurText(modifiedText);
-        }
-    }, [transcript])
-
-    if (!browserSupportsSpeechRecognition) {
-        return <span>Browser doesn't support speech recognition.</span>;
+    const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        setOurText(event.target.value)
     }
+
 
     return (
         <div className={style.SpeechWrapper}>
@@ -62,8 +71,8 @@ const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
                 onChange={onChange}
             />
             <div className={style.SpeechButtonWrapper}>
-                <button className={style.SpeechButton} onClick={()=>SpeechRecognition.startListening()}>Start</button>
-                <button className={style.SpeechButton} onClick={SpeechRecognition.stopListening}>Stop</button>
+                <button className={style.SpeechButton} onClick={startRecognition}>Start</button>
+                <button className={style.SpeechButton} onClick={stopRecognition}>Stop</button>
                 <button className={style.SpeechButton} onClick={onClear}>Reset</button>
             </div>
             <Link className='Link' to={`/`}>Return to Bonuses</Link>
@@ -71,4 +80,4 @@ const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         </div>
     );
 };
-export default Speech;
+export default SpeechNative;

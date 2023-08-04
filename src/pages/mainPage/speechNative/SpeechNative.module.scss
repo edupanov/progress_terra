@@ -1,0 +1,53 @@
+.SpeechWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+
+  .SpeechTitleWrapper {
+    display: flex;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .MicroOn {
+      color: green;
+      margin-left: 15px;
+      font-size: 24px;
+
+    }
+
+    .MicroOff {
+      color: red;
+      margin-left: 15px;
+      font-size: 24px;
+
+    }
+  }
+
+  .SpeechTextView {
+    padding: 10px;
+    resize: none;
+    border: 1px solid #f54b55;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+  .SpeechButtonWrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    .SpeechButton{
+      width: 40px;
+      height: 30px;
+      padding: 5px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background: #f54b55;
+      color: white;
+    }
+  }
+}
